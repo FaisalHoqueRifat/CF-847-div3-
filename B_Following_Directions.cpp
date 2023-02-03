@@ -49,7 +49,7 @@ using namespace std;
 #define ff first
 #define ss second
 #define all(v) v.begin(), v.end()
-#define rall(v) v.rbegin(), v.rend() 
+#define rall(v) v.rbegin(), v.rend()
 
 #define SetBit(x, k) (x |= (1LL << k))
 #define ClearBit(x, k) (x &= ~(1LL << k))
@@ -131,26 +131,32 @@ ll uB(vector<ll> &a, ll x)
     }
     return r;
 }
-string ans = "314159265358979323846264338327";
 void solve()
 {
+  int n;
+  cin>>n;
   string str;
   cin>>str;
-  int len = str.length();
-  int cnt = 0;
-  for(int i = 0; i<len; i++)
+  int x = 0, y = 0, flag = 0;
+  fr(n)
   {
-    if(str[i] == ans[i]) cnt++;
-    else break;
+    if(str[i] == 'U') y++;
+    else if(str[i] == 'D') y--;
+    else if(str[i] == 'R') x++;
+    else x--;
+    if(x==1 && y==1) 
+    {
+        flag = 1;
+        break;
+    }
   }
-  cout<<cnt<<endl;
+  if(flag) cout<<"YES"<<endl;
+  else cout<<"NO"<<endl;
 }
 
 int main()
 {
   fastio;
-  // freopen("Input.txt", "r", stdin);
-  // freopen("Output.txt","w", stdout);
   int test;
   cin>>test;
   while(test--)

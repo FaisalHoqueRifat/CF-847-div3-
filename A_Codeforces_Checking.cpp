@@ -131,30 +131,24 @@ ll uB(vector<ll> &a, ll x)
     }
     return r;
 }
+string ans = "codeforces";
 void solve()
 {
-  int n, s, r;
-  cin>>n>>s>>r;
-  vector<int>ans(n-1, 1);
-  ans.pb(s-r);
-  int left = s-r, i=0;
-  r = r - (n-1);
-  while(r!=0)
+  char ch;
+  cin>>ch;
+  int flag = 0;
+  for(int i = 0; i<10; i++) 
   {
-    if(ans[i]<left)
+    if(ans[i] == ch) 
     {
-        ans[i]++;
-        r--;
-    }
-    else
-    {
-        i++;
+        flag = 1;
+        break;
     }
   }
-  sort(all(ans));
-  fr(n) cout<<ans[i]<<" ";
-  cout<<endl;
+  if(flag) cout<<"YES"<<endl;
+  else cout<<"NO"<<endl;
 }
+
 int main()
 {
   fastio;
